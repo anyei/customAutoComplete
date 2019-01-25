@@ -7,8 +7,8 @@ sfdc lightning component, autocomplete to search any object you may want to do s
 
 
 
-### simple example 1
-This will search in the US_States__mdt custom metadata settings object and will use the value in the labelField attribute as the condition field.
+### Usage
+The simplest way to use this component is to put the markup anywhere within your lightninig component or lightning app, then set the properties and that's it. Here a simple examples, there are more if you scroll down:
 
 ##### markup
 ```html
