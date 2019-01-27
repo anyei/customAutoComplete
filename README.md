@@ -147,3 +147,28 @@ Using other required lightning components and validating everything at once.
 
 ```
 
+
+
+### simple example 6 when the selected record is cleaned
+Once you've selected an item, you may catch the event that is raise when the selected record is removed.
+
+##### markup
+```html
+<c:customAutoComplete  valueField="Label" labelField="Label" targetObject="US_States__mdt" aura:id="stateAutoC"  label="States"  onItemRemoved="{!c.ItemRemoved}"  />
+
+```
+
+##### js controller
+```javascript
+({
+ItemRemoved :function(component, event, helper){
+       var selectedRecord = event.getParam('args').value;
+        console.log('Item Removed ... ');
+        console.log(selectedRecord.label + ' ' + selectedRecord.value);
+        //recommended to stop the propagation if no need to let it go up in the event hierarchy
+        event.stopPropagation();
+    }
+})
+
+```
+
