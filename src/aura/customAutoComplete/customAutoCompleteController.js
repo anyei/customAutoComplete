@@ -6,7 +6,12 @@
             helper.validateThisComponent(component, event, helper);
     },
     clearValue : function(component, event, helper) {
+        var selectedRecord = component.get('v.value');
+        var onRemovedEvent = component.getEvent('itemRemovedEvent');
+        onRemovedEvent.setParams({"args":{"value":selectedRecord}});        
+        
         component.set('v.value',null);
+        onRemovedEvent.fire();
     },
     doSearch:function(component, event, helper){ 
         if(!helper.hasClass("trigger-container","slds-is-open",component, event, helper)) 
@@ -23,9 +28,7 @@
     },
     itemSelected:function(component, event, helper){        
         var selectedValue = event.getParam('args').value;
-        var onItemSelected = component.get('v.onItemSelected');
-        console.log('item selected running action');
-     
+        var onItemSelected = component.get('v.onItemSelected');     
         component.set('v.value', selectedValue);
         if(helper.hasClass("trigger-container","slds-is-open",component, event, helper)) 
             helper.toggleContainersVisualMode("trigger-container","slds-is-open",component, event, helper);

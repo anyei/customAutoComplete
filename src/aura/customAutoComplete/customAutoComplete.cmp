@@ -1,7 +1,7 @@
 <aura:component controller="CustomAutoCompleteController" >
     <aura:attribute name="value" type="Map" />
     <aura:attribute name="label" type="String" />
-    <aura:attribute name="placeholder" type="String" />
+    <aura:attribute name="placeholder" type="String" default="Search..." />
     <aura:attribute name="noRecordsMessage" type="String" default="No records found."/>
     <aura:attribute name="results" type="Object[]" access="private" />
     <aura:attribute name="searchInProgress" type="boolean" access="private" />
@@ -13,13 +13,16 @@
     <aura:attribute name="customCondition" type="String" />
     <aura:attribute name="itemLimit" type="String" default="7" />
     <aura:attribute name="onItemSelected" type="Aura.Action" default="{!c.onItemSelectedDummy}" />
+    <aura:attribute name="onItemRemoved" type="Aura.Action"  default="{!c.onItemSelectedDummy}"/>
     <aura:attribute name="required" type="boolean" />
     <aura:attribute name="validity" type="Map" />
     <aura:attribute name="requiredMessage" type="String" default="Complete this field." />
     <aura:attribute name="icon" type="String" default="standard:account" />
     
+    <aura:registerEvent name="itemRemovedEvent" type="c:customAutoCompleteEvent" />
     
     <aura:handler name="itemSelectedEvent" event="c:customAutoCompleteEvent" action="{!v.onItemSelected}"/>
+    <aura:handler name="itemRemovedEvent" event="c:customAutoCompleteEvent" action="{!v.onItemRemoved}"/>
     
     <aura:method name="showHelpMessageIfInvalid" action="{!c.validateThisComponent}" />
     
