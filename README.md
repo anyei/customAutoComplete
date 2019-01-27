@@ -6,6 +6,19 @@ sfdc lightning component, autocomplete to search any object you may want to do s
 ![demo](https://github.com/anyei/customAutoComplete/raw/master/customAutoComplete-Demo.gif)
 
 
+### Install
+
+##### Deploy to Salesforce Button
+
+<a href="https://githubsfdeploy.herokuapp.com?owner=anyei&repo=customAutoComplete">
+  <img alt="Deploy to Salesforce"
+       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/src/main/webapp/resources/img/deploy.png">
+</a>
+
+##### Manual Install
+
+You may manually create the class within your org and copy paste the content of JPath class as for the JPath_Test. 
+
 
 ### Usage
 The simplest way to use this component is to put the markup anywhere within your lightninig component or lightning app, then set the properties and that's it. Here a simple examples, there are more if you scroll down:
