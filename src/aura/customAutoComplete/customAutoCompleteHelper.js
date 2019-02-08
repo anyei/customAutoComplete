@@ -35,6 +35,12 @@
         query += ' limit ' +(customLimit != null && customLimit != undefined ? customLimit : '7');
        return query;
     },
+    generateRecordByIdQuery:function(idValue, component, event, helper){
+        var labelField = component.get('v.labelField');
+        var valueField = component.get('v.valueField');
+      var query = 'select '+ labelField + ' , '+ valueField + ' from ' + component.get('v.targetObject') +" where Id ='"+ idValue+"'";
+       return query; 
+    },
     runQuery:function(query,component, event, helper, callback){
         // create a one-time use instance of the serverEcho action
         // in the server-side controller

@@ -1,6 +1,7 @@
 <aura:component >
     <aura:attribute name="value" type="Map" />
     <aura:attribute name="onselected" type="Aura.Action" />
+    <aura:attribute name="name" type="String" />
 	<aura:registerEvent name="itemSelectedEvent" type="c:customAutoCompleteEvent"/>
     <aura:handler name="itemSelectedEvent" event="c:customAutoCompleteEvent" action="{!v.onselected}"/>
 
