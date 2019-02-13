@@ -24,6 +24,7 @@
     <aura:attribute name="disabled" type="boolean" />
     <aura:attribute name="name" type="String" />
     <aura:attribute name="showEditButton" type="boolean" default="true"/>
+    <aura:attribute name="alternateFieldLabel" type="String" />
     <aura:registerEvent name="itemRemovedEvent" type="c:customAutoCompleteEvent" />
     
     
@@ -34,7 +35,7 @@
     
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <aura:if isTrue="{!v.mode =='edit'}">
-        <div class="{!if(v.hasErrors, 'slds-has-error', '') + ' slds-form-element'}">
+        <div class="{!if(v.hasErrors, 'slds-has-error', '') + ' slds-form-element  slds-form-element_stacked slds-hint-parent slds-form-element_1-col'}" >
             <label class="slds-form-element__label" for="combobox-id-5">
                 <aura:if isTrue="{!v.required}"><abbr class="slds-required" title="required">* </abbr></aura:if>{!v.label}</label>
             <div class="slds-form-element__control">
@@ -134,7 +135,7 @@
         </div> 
     </aura:if>
     <aura:if isTrue="{!v.mode=='view'}">
-        <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+        <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent slds-form-element_1-col">
             <span class="slds-form-element__label">{!v.label}</span>
             <div class="slds-form-element__control">
                 <div class="slds-form-element__static">

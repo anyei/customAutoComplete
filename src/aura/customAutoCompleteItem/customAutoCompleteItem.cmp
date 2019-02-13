@@ -14,8 +14,15 @@
                                                 </span>
                                             </span>
                                             <span class="slds-media__body">
-                                                <span class="slds-listbox__option-text slds-listbox__option-text_entity">{!v.value.label}</span>
-                                                <span class="slds-listbox__option-meta slds-listbox__option-meta_entity">{!v.value.value}</span>
+                                                <span class="slds-listbox__option-text slds-listbox__option-text_entity">{!v.value.label}</span>                                               
+                                                <span class="slds-listbox__option-meta slds-listbox__option-meta_entity">
+                                                    <aura:if isTrue="{!v.value.alternate == null || v.value.alternate==''}">
+                                                        {!v.value.value}
+                                                        <aura:set attribute="else">
+                                                        {!v.value.alternate}
+                                                        </aura:set>
+                                                </aura:if>
+                                                </span>
                                             </span>
                                         </div>
                                     </li>
